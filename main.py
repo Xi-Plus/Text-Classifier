@@ -43,7 +43,7 @@ class TextClassifier():
             counts = self.vectorizer.fit_transform(X_train)
             self.classifier.fit(counts, y_train)
 
-    def predict(self, text, ans):
+    def predict(self, text):
         example = self.vectorizer.transform(text)
         # predict = self.classifier.predict(example)
         predict_proba = self.classifier.predict_proba(example)
@@ -78,5 +78,5 @@ class TextClassifier():
 
 if __name__ == "__main__":
     classifier = TextClassifier()
-    res = classifier.predict(classifier.X_test, classifier.y_test)
+    res = classifier.predict(classifier.X_test)
     classifier.print(res, classifier.y_test)
