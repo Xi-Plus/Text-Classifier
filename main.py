@@ -1,4 +1,5 @@
 import os
+import argparse
 
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
@@ -77,6 +78,17 @@ class TextClassifier():
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Process some integers.')
+    parser.add_argument('action', nargs='?', default='main')
+    parser.add_argument('test')
+    args = parser.parse_args()
+
     classifier = TextClassifier()
-    res = classifier.predict(classifier.X_test)
-    classifier.print(res, classifier.y_test)
+
+    if args.action == 'main':
+        res = classifier.predict(classifier.X_test)
+        classifier.print(res, classifier.y_test)
+    elif args.action == 'test':
+        temp = open(args.test, 'r', encoding='utf8').read()
+        res = classifier.predict([temp])
+        print(res)
