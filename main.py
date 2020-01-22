@@ -80,7 +80,7 @@ class TextClassifier():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Process some integers.')
     parser.add_argument('action', nargs='?', default='main')
-    parser.add_argument('test')
+    parser.add_argument('test', nargs='?')
     args = parser.parse_args()
 
     classifier = TextClassifier()
