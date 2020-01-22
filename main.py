@@ -63,13 +63,13 @@ class TextClassifier():
                     correct += 1
                 else:
                     error2 += 1
-                    print('error2', predict_proba[i])
+                    print('error2', predict_proba[i], self.X_test[i])
             else:
                 if ans[i] == 0:
                     correct += 1
                 else:
                     error1 += 1
-                    print('error1', predict_proba[i])
+                    print('error1', predict_proba[i], self.X_test[i])
 
         print('-' * 50)
         print('correct', correct, correct / len(ans))
